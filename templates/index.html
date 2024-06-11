@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <title>Speech Recognition Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Mono&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Header section -->
+    <header>
+        <div class="header-content">
+            <div class="upperSection">
+                <div class="logo">
+                    <!-- Logo -->
+                    <a href="#"><img src="/static/images/mic.jpg" alt="Your Logo"></a>
+                </div>
+
+                <!-- Navigation links -->
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="lowerSection">
+                <div class="title">
+                    <h1>Unified Speech Recognition Assistant</h1>
+                    <h3>Use sentiment analysis to quickly get insights into data.</h3>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main container -->
+    <div class="main-container">
+        <!-- Left division -->
+        <div class="left-div">
+            <div class="record">
+                <!-- Audio Recording -->
+                <h3>Record Voice</h3>
+                <button class="button1" id="startRecording">Start</button>
+                <button class="button2" id="stopRecording" disabled>Stop</button>
+                <button class="button3" id="submitRecording">Submit</button>
+                <audio id="recordedAudio" controls style="display: none;"></audio>
+            </div>
+
+            <div class="audio">
+                <!-- Audio Upload -->
+                <h3>Upload Audio</h3>
+                <input type="file" id="audioFile" accept="audio/wav">
+                <label for="audioFile">Upload File</label>
+                <button class="button4" id="submitAudio">Submit</button>
+            </div>
+
+            <div class="text">
+                <!-- Text Input Field -->
+                <h3>Enter Text</h3>
+                <input type="text" id="textInput" placeholder="Enter text..." required>
+            </div>
+
+            <div class="predictButton">
+                <button id="submitText">Make Predictions</button>
+            </div>
+        </div>
+
+        <!-- Right division -->
+        <div class="right-div">
+            <!-- Result division -->
+            <div class="result">
+                <h3>Results</h3>
+            </div>
+
+            <!-- Top division -->
+            <div class="top-div">
+                <!-- Left division -->
+                <div class="top-left" id="emotionResult">
+                    <div class="emotion">
+                        <h4>Emotion</h4>
+                    </div>
+                    <div class="emotion-display">
+                        <div class="emotion-text">
+                            <!-- Placeholder for emotion text -->
+                        </div>
+                        <div class="emojis">
+                            <div class="emoji-circle hidden-emoji" id="happyEmoji">😊</div>
+                            <div class="emoji-circle hidden-emoji" id="loveEmoji">😍</div>
+                            <div class="emoji-circle hidden-emoji" id="neutralEmoji">😐</div>
+                            <div class="emoji-circle hidden-emoji" id="sadEmoji">😢</div>
+                            <div class="emoji-circle hidden-emoji" id="angerEmoji">😠</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right division -->
+                <div class="top-right" id="sentimentResult">
+                    <div class="sentiment">
+                        <h4>Sentiment</h4>
+                    </div>
+                    <div class="sentiment-display">
+                        <div class="sentiment-text">
+                            <!-- Placeholder for sentiment text -->
+                        </div>
+                        <div class="emojis">
+                            <div class="emoji-circle hidden-emoji" id="positiveEmoji">😃</div>
+                            <div class="emoji-circle hidden-emoji" id="neutralSentimentEmoji">😐</div>
+                            <div class="emoji-circle hidden-emoji" id="negativeEmoji">😞</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Bottom division -->
+            <div class="bottom-div">
+                <!-- Left division -->
+                <div class="bottom-left">
+                    <h4>Emotion Histogram</h4>
+                    <canvas id="histogramEmotionChart"></canvas> <!-- Canvas for histogram chart -->
+                </div>
+                <!-- Right division -->
+                <div class="bottom-right">
+                    <h4>Sentiment Histogram</h4>
+                    <canvas id="histogramSentimentChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer section -->
+    <footer>
+        <div class="footer-content">
+            <a href="https://github.com/faizanhabib-amu/A-Unified-Speech-Recognition-Assistant" target="_blanck" class="github-link">
+                <img src="/static/images/github.png" alt="GitHub">
+            </a>
+        </div>
+        <div class="footer-bottom">
+            <p>All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Link to external JavaScript file -->
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
