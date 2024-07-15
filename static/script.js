@@ -42,7 +42,6 @@ const stopRecording = () => {
     }
 };
 
-<<<<<<< HEAD
 // let mediaRecorder;
 // let audioChunks = [];
 // let audioBlob;
@@ -88,8 +87,6 @@ const stopRecording = () => {
 // });
 
 
-=======
->>>>>>> 6ebf796a5e51c2baaa2b7a146be3c10dbba557fb
 // Function to style the audio element
 const styleAudioElement = () => {
     const audio = document.getElementById('recordedAudio');
@@ -102,23 +99,14 @@ const styleAudioElement = () => {
     audio.style.marginTop = '5px';
 };
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 6ebf796a5e51c2baaa2b7a146be3c10dbba557fb
 // Adding event listeners to the buttons
 document.getElementById('startRecording').addEventListener('click', startRecording);
 document.getElementById('stopRecording').addEventListener('click', stopRecording);
 
 // Handle recorded audio file submission
 document.getElementById('submitRecording').addEventListener('click', async () => {
-<<<<<<< HEAD
     const audioElement = document.getElementById('recordedAudio');
     const audioBlob = audioElement.blob;
-=======
-    const audio = document.getElementById('recordedAudio');
-    const audioBlob = audio.blob;
->>>>>>> 6ebf796a5e51c2baaa2b7a146be3c10dbba557fb
 
     if (!audioBlob) {
         alert('Record the audio first!');
@@ -139,26 +127,15 @@ document.getElementById('submitRecording').addEventListener('click', async () =>
         }
 
         const data = await response.json();
-<<<<<<< HEAD
 
         document.getElementById('textInput').value = data.transcription;
     } catch (error) {
         console.error('Error:', error);
         alert('Record again');
-=======
-        document.getElementById('textInput').value = data.transcription; // Insert transcription into textInput field
-    } catch (error) {
-        console.error('Error:', error);
-        alert('An error occurred while processing the audio file.');
->>>>>>> 6ebf796a5e51c2baaa2b7a146be3c10dbba557fb
     }
 });
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ebf796a5e51c2baaa2b7a146be3c10dbba557fb
 // Handle wav audio file submission
 document.getElementById('submitAudio').addEventListener('click', async () => {
     const audioFile = document.getElementById('audioFile').files[0];
@@ -177,7 +154,6 @@ document.getElementById('submitAudio').addEventListener('click', async () => {
             body: formData
         });
 
-<<<<<<< HEAD
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -188,13 +164,6 @@ document.getElementById('submitAudio').addEventListener('click', async () => {
     } catch (error) {
         console.error('Error:', error);
         alert('Upload another file.');
-=======
-        const data = await response.json();
-        document.getElementById('textInput').value = data.transcription;
-    } catch (error) {
-        console.error('Error:', error);
-        alert('An error occurred while processing the audio file.');
->>>>>>> 6ebf796a5e51c2baaa2b7a146be3c10dbba557fb
     }
 });
 
