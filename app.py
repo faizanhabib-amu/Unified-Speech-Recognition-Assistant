@@ -7,12 +7,9 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import load_model
 import pickle
 import speech_recognition as sr
-<<<<<<< HEAD
 from pydub import AudioSegment
 
 AudioSegment.converter = "C:/ffmpeg/bin/ffmpeg.exe"
-=======
->>>>>>> 6ebf796a5e51c2baaa2b7a146be3c10dbba557fb
 
 app = Flask(__name__)
 
@@ -41,8 +38,7 @@ def predict_emotion(sentence, model, tokenizer, max_len=100):
 def index():
     return render_template('index.html')
 
-<<<<<<< HEAD
-UPLOAD_FOLDER = r'C:\Users\mrsha\Desktop\App\RecordedFiles'
+UPLOAD_FOLDER = r'C:\Users\Faizan Habib\Desktop\App\RecordedFiles'
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
@@ -58,43 +54,16 @@ def convert_to_wav(file_path):
     except Exception as e:
         logging.error(f'Error converting file to WAV: {e}')
         raise
-=======
-@app.route('/predict', methods=['POST'])
-def predict():
-    data = request.get_json()
-    text = data['text']
-    
-    # Predict emotion
-    emotion_index, prediction = predict_emotion(text, model, tokenizer)
-    predicted_emotion = emotion_labels[emotion_index]
-
-    return jsonify({'prediction': predicted_emotion})
-
-import logging
-
-# Configure logging
-logging.basicConfig(level=logging.DEBUG)
-
-UPLOAD_FOLDER = r'C:\Users\Faizan Habib\Desktop\App\RecordedFiles'
-if not os.path.exists(UPLOAD_FOLDER):
-    os.makedirs(UPLOAD_FOLDER)
-
->>>>>>> 6ebf796a5e51c2baaa2b7a146be3c10dbba557fb
 
 @app.route('/upload', methods=['POST'])
 def upload_audio():
     try:
         audio_file = request.files['audio']
         if audio_file:
-<<<<<<< HEAD
-=======
-            # Save the audio file to the specified directory
->>>>>>> 6ebf796a5e51c2baaa2b7a146be3c10dbba557fb
             save_path = os.path.join(UPLOAD_FOLDER, 'uploaded_audio.wav')
             audio_file.save(save_path)
             logging.info(f'Audio file saved successfully to: {save_path}')
 
-<<<<<<< HEAD
             # Convert to WAV with correct format if necessary
             converted_path = convert_to_wav(save_path)
             logging.info(f'Audio file converted to WAV format: {converted_path}')
@@ -107,15 +76,6 @@ def upload_audio():
 
             logging.info(f'Transcription: {transcription}')
             return jsonify({'message': 'Audio uploaded and transcribed successfully', 'transcription': transcription, 'audio_path': converted_path})
-=======
-            # Process the audio file and convert it to text
-            transcription = process_audio(save_path)
-
-            # Log the transcription
-            logging.info(f'Transcription: {transcription}')
-
-            return jsonify({'message': 'Audio uploaded and transcribed successfully', 'transcription': transcription, 'audio_path': save_path})
->>>>>>> 6ebf796a5e51c2baaa2b7a146be3c10dbba557fb
         else:
             logging.error('No audio file received')
             return jsonify({'error': 'No audio file received'}), 400
@@ -123,29 +83,19 @@ def upload_audio():
         logging.error(f'Error during audio upload: {e}')
         return jsonify({'error': f'Error during audio upload: {e}'}), 500
 
-<<<<<<< HEAD
 def process_audio(audio_path):
     try:
-=======
-# Function to process audio and convert it to text
-def process_audio(audio_path):
-    try:
-        import speech_recognition as sr
->>>>>>> 6ebf796a5e51c2baaa2b7a146be3c10dbba557fb
         recognizer = sr.Recognizer()
         with sr.AudioFile(audio_path) as source:
             audio_data = recognizer.record(source)
             transcription = recognizer.recognize_google(audio_data)
         return transcription
-<<<<<<< HEAD
     except sr.UnknownValueError:
         logging.error('Speech Recognition could not understand audio')
         return None
     except sr.RequestError as e:
         logging.error(f'Could not request results from Google Speech Recognition service; {e}')
         return None
-=======
->>>>>>> 6ebf796a5e51c2baaa2b7a146be3c10dbba557fb
     except Exception as e:
         logging.error(f'Error processing audio: {e}')
         return None
@@ -167,8 +117,5 @@ def predict_emotion_and_histogram():
     return jsonify({'prediction': predicted_emotion, 'percentages': percentages})
 
 if __name__ == '__main__':
-<<<<<<< HEAD
     logging.basicConfig(level=logging.INFO)
-=======
->>>>>>> 6ebf796a5e51c2baaa2b7a146be3c10dbba557fb
     app.run(debug=True)
