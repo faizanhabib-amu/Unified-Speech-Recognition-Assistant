@@ -38,11 +38,7 @@ def predict_emotion(sentence, model, tokenizer, max_len=100):
 def index():
     return render_template('index.html')
 
-<<<<<<< HEAD
 UPLOAD_FOLDER = r'C:\Users\Faizan Habib\Desktop\App\RecordedFiles' # Replace the path
-=======
-UPLOAD_FOLDER = r'C:\Users\Faizan Habib\Desktop\App\RecordedFiles'
->>>>>>> origin/main
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
