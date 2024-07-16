@@ -42,51 +42,6 @@ const stopRecording = () => {
     }
 };
 
-// let mediaRecorder;
-// let audioChunks = [];
-// let audioBlob;
-
-// document.getElementById('startRecording').addEventListener('click', () => {
-//     navigator.mediaDevices.getUserMedia({ audio: true })
-//         .then(stream => {
-//             mediaRecorder = new MediaRecorder(stream);
-//             mediaRecorder.start();
-
-//             mediaRecorder.ondataavailable = event => {
-//                 audioChunks.push(event.data);
-//             };
-
-//             mediaRecorder.onstop = () => {
-//                 audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
-//                 audioChunks = [];
-//                 const audioUrl = URL.createObjectURL(audioBlob);
-//                 const audioElement = document.getElementById('recordedAudio');
-//                 audioElement.src = audioUrl;
-//                 audioElement.blob = audioBlob;  // Save the blob for later submission
-//                 styleAudioElement(); // Style the audio element
-
-//                 // Stop the media stream
-//                 stream.getTracks().forEach(track => {
-//                     track.stop();
-//                 });
-
-//             };
-//             mediaRecorder.start();
-//             document.getElementById('startRecording').disabled = true;
-//             document.getElementById('stopRecording').disabled = false;
-//         })
-//         .catch(error => console.error('Error accessing microphone:', error));
-// });
-
-// document.getElementById('stopRecording').addEventListener('click', () => {
-//     if (mediaRecorder && mediaRecorder.state !== 'inactive') {
-//         mediaRecorder.stop();
-//         document.getElementById('startRecording').disabled = false;
-//         document.getElementById('stopRecording').disabled = true;
-//     }
-// });
-
-
 // Function to style the audio element
 const styleAudioElement = () => {
     const audio = document.getElementById('recordedAudio');
